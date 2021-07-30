@@ -30,7 +30,27 @@ Module Parser
                 )
         Next
 
+        Dim InitialState As New State("", "States...", "ST", "", "")
+
+        States.Insert(0, InitialState)
+
         Return States
+    End Function
+
+    Public Function GetStateByName(SelectedStateName As String) As Integer
+
+        Dim ListIndex As Integer = 0
+
+        For Each State In States
+            If State.Name = SelectedStateName Then
+                Return ListIndex
+            End If
+
+            ListIndex = ListIndex + 1
+        Next
+
+        Return Nothing
+
     End Function
 
     'Public Function GetStates(States As List(Of String))

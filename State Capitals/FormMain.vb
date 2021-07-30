@@ -39,20 +39,21 @@ Public Class FormMain
     Private Sub cboStates_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cboStates.SelectedIndexChanged
         'MessageBox.Show(States.IndexOf(cboStates.Text))
 
-        If cboStates.Text = "Select One..." Then
+        If cboStates.Text = "States..." Then
             lblStateName.Text = " "
             lblStateAbbreviation.Text = " "
             lblStateCapital.Text = " "
             lblStateLongitude.Text = " "
             lblStateLatitude.Text = " "
         Else
+            Dim SelectedState As Integer = GetStateByName(cboStates.Text)
+            'MessageBox.Show(SelectedState)
 
+            lblStateName.Text = States(SelectedState).Name
+            lblStateAbbreviation.Text = States(SelectedState).Abbreviation
+            lblStateCapital.Text = States(SelectedState).Capital
+            lblStateLongitude.Text = States(SelectedState).Longitude
+            lblStateLatitude.Text = States(SelectedState).Latitude
         End If
-
-        lblStateName.Text = States(States.IndexOf(cboStates.Text)).Name
-        lblStateAbbreviation.Text = States(States.IndexOf(cboStates.Text)).Abbreviation
-        lblStateCapital.Text = States(States.IndexOf(cboStates.Text)).Capital
-        lblStateLongitude.Text = States(States.IndexOf(cboStates.Text)).Longitude
-        lblStateLatitude.Text = States(States.IndexOf(cboStates.Text)).Latitude
     End Sub
 End Class
